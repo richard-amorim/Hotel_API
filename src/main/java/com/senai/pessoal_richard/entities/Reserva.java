@@ -40,7 +40,7 @@ public class Reserva {
         return Objects.hash(id, nome, descricao, preco, data_cadastro, data_atualizacao);
     }
 
-    @ManyToMany
+    @OneToOne
     @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 

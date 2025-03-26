@@ -28,7 +28,11 @@ public class Cliente {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Cliente cliente = (Cliente) o;
-        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome) && Objects.equals(email, cliente.email) && Objects.equals(telefone, cliente.telefone) && Objects.equals(endereco, cliente.endereco) && Objects.equals(data_nascimento, cliente.data_nascimento) && Objects.equals(cpf, cliente.cpf);
+
+        return Objects.equals(id, cliente.id) && Objects.equals(nome, cliente.nome)
+                && Objects.equals(email, cliente.email) && Objects.equals(telefone, cliente.telefone)
+                && Objects.equals(endereco, cliente.endereco) && Objects.equals(data_nascimento, cliente.data_nascimento)
+                && Objects.equals(cpf, cliente.cpf);
     }
 
     @Override

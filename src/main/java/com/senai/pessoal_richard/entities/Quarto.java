@@ -29,8 +29,9 @@ public class Quarto {
     @JoinColumn(name = "id_reserva")
     private Reserva reserva;
 
-
-
+    @OneToOne
+    @JoinColumn(name = "id_hotel")
+    private Hotel hotel;
 
 
 }
