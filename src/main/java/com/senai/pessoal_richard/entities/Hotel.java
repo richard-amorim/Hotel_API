@@ -23,9 +23,9 @@ public class Hotel {
     private String cnpj;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_cadastro;
+    private Date dataCadastro;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_atualizacao;
+    private Date dataAtualizacao;
 
     @OneToMany
     @JoinColumn(name = "id_hotel")

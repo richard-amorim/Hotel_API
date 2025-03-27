@@ -24,20 +24,23 @@ public class Reserva {
 
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_cadastro;
+    private Date dataCadastro;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_atualizacao;
+    private Date dataAtualizacao;
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Reserva reserva = (Reserva) o;
-        return Objects.equals(id, reserva.id) && Objects.equals(nome, reserva.nome) && Objects.equals(descricao, reserva.descricao) && Objects.equals(preco, reserva.preco) && Objects.equals(data_cadastro, reserva.data_cadastro) && Objects.equals(data_atualizacao, reserva.data_atualizacao);
+        return Objects.equals(id, reserva.id) && Objects.equals(nome, reserva.nome)
+                && Objects.equals(descricao, reserva.descricao) && Objects.equals(preco, reserva.preco)
+                && Objects.equals(dataCadastro, reserva.dataCadastro)
+                && Objects.equals(dataAtualizacao, reserva.dataAtualizacao);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, descricao, preco, data_cadastro, data_atualizacao);
+        return Objects.hash(id, nome, descricao, preco, dataCadastro, dataAtualizacao);
     }
 
     @OneToOne

@@ -41,11 +41,11 @@ public class Cliente {
     }
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_cadastro;
+    private Date dataCadastro;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_atualizacao;
+    private Date dataAtualizacao;
 
-    @ManyToMany
+    @ManyToOne
     @JoinColumn(name = "id_reserva")
     private Reserva reserva;
 

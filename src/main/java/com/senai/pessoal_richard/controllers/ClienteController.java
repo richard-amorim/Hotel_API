@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/clientes") //define o caminho para as requisições relacionadas ao controller
+@RequestMapping("/api/clientes")
 public class ClienteController {
 
     @Autowired
@@ -16,25 +18,31 @@ public class ClienteController {
 
     @PostMapping
     public ResponseEntity<ClienteDTO> createCliente(@RequestBody ClienteDTO clienteDTO) {
-        ClienteDTO novoCliente = clienteService.getClienteById(clienteDTO.getId());
+        ClienteDTO novoCliente = clienteService.createCliente(clienteDTO); // Corrigido aqui
         return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
     }
 
-    @GetMapping
-    public
+    @GetMapping("/")
+    public ResponseEntity<List<ClienteDTO>> getAllClientes() {
+        List<ClienteDTO> list = clienteService.findByAll();
+        return ResponseEntity.ok(list);
+    }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ClienteDTO> getClienteById(@PathVariable Long id) {
+        ClienteDTO clienteDTO = clienteService.getClienteById(id);
+        return ResponseEntity.ok(clienteDTO);
+    }
 
-}
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteDTO> updateCliente(@PathVariable Long id, @RequestBody ClienteDTO clienteDTO) {
+        ClienteDTO cliente = clienteService.updateCliente(id, clienteDTO);
+        return ResponseEntity.ok(cliente);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
+        clienteService.deleteCliente(id);
+        return ResponseEntity.noContent().build();
+    }
 }

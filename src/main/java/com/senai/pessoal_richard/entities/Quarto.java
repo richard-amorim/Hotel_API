@@ -21,9 +21,9 @@ public class Quarto {
     private String preco;
 
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_cadastro;
+    private Date dataCadastro;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date data_atualizacao;
+    private Date dataAtualizacao;
 
     @ManyToOne
     @JoinColumn(name = "id_reserva")
