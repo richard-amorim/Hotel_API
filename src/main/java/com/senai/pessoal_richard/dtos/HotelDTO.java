@@ -1,4 +1,5 @@
 package com.senai.pessoal_richard.dtos;
+import com.senai.pessoal_richard.entities.Hotel;
 import lombok.Data;
 
 @Data
@@ -20,5 +21,15 @@ public class HotelDTO {
         this.telefone = telefone;
         this.cnpj = cnpj;
     }
+
+    public HotelDTO(Hotel hotel) {
+        this.id = hotel.getId();
+        this.nome = hotel.getNome();
+        this.endereco = hotel.getEndereco();
+        this.telefone = hotel.getTelefone();
+        this.cnpj = hotel.getCnpj();
+    }
+
+
 
 }

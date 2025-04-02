@@ -22,16 +22,16 @@ public class ClienteController {
         return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
     }
 
-    @GetMapping("/")
-    public ResponseEntity<List<ClienteDTO>> getAllClientes() {
-        List<ClienteDTO> list = clienteService.findByAll();
-        return ResponseEntity.ok(list);
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<ClienteDTO> getClienteById(@PathVariable Long id) {
         ClienteDTO clienteDTO = clienteService.getClienteById(id);
         return ResponseEntity.ok(clienteDTO);
+    }
+
+    @GetMapping("/")
+    public ResponseEntity<List<ClienteDTO>> getAllClientes() {
+        List<ClienteDTO> list = clienteService.findByAll();
+        return ResponseEntity.ok(list);
     }
 
     @PutMapping("/{id}")
@@ -41,8 +41,8 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCliente(@PathVariable Long id) {
+    public void deleteCliente(@PathVariable Long id) {
         clienteService.deleteCliente(id);
-        return ResponseEntity.noContent().build();
     }
+
 }

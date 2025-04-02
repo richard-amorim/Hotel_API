@@ -20,7 +20,7 @@ public class HotelController {
 
     @PostMapping
     public ResponseEntity<HotelDTO> createHotel (@RequestBody HotelDTO hotelDTO) {
-        HotelDTO novoHotel = hotelService.createHotel(hotelDTO);
+        HotelDTO novoHotel = hotelService.createHotel(hotelDTO); // Corrigido aqui
         return new ResponseEntity<>(novoHotel, HttpStatus.CREATED);
     }
 
@@ -42,7 +42,10 @@ public class HotelController {
         return ResponseEntity.ok(hotelDTO1);
     }
 
-
+    @DeleteMapping("/{id}")
+    public void deleteHotel(@PathVariable Long id) {
+        hotelService.deleteHotel(id);
+    }
 
 
 
