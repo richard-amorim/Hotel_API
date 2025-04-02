@@ -19,10 +19,12 @@ public class Cliente {
     private Long id;
     private String nome;
     private String email;
+    private String senha;
     private String telefone;
     private String endereco;
     private String data_nascimento;
     private String cpf;
+
 
     @Override
     public boolean equals(Object o) {
